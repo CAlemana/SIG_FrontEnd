@@ -1,1 +1,19 @@
-<p>login works!</p>
+<table>
+    <td>
+        <mat-card>
+            <mat-form-field>
+                <mat-label>Usuario</mat-label>
+                <input matInput type="text" ngModel="user">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Contraseña</mat-label>
+                <input matInput type="password" ngModel="password">
+            </mat-form-field>
+        </mat-card>
+    </td>
+</table>
+<br>
+<div style="justify-content: center; display: flex;">
+    <button style="font-style: oblique;" mat-raised-button (click)="toSettings()">Registrar <mat-icon>account_balance_wallet</mat-icon></button>
+</div>

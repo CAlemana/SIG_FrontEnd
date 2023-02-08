@@ -9,22 +9,35 @@ import { ClientService } from 'src/app/services/client_service/client-service';
   styleUrls: ['./client-list.component.css']
 })
 export class ClientListComponent {
-  clientes: client_model[] = [];
-  constructor(public clientService:ClientService){
+  clients: client_model[] = [];
+  displayedColumns: string[] = ['cedula', 'name', 'lastname', 'age', 'gender', 'phone', 'start_date', 'end_date'];
+  dataSource = this.clients;
 
+  constructor(public clientService:ClientService){}
+
+  ngOnInit(): void {
+    this.clients = [];
+    let lista: client_model[] = [];
+    this.clientService.getClients().subscribe ((data: client_model[]) => {
+      lista = data as client_model[]
+      for (let cliente of lista) {
+        this.clients.push(cliente);
+      }
+      console.log(this.clients)
+    });
   }
-
-  prueba() {
+  /*
+  getClientes() {
+    this.clients = [];
     let lista: client_model[] = [];
     this.clientService.getClients().subscribe ((data: client_model[]) => {
       lista = data
       for (let cliente of lista) {
-        this.clientes.push(cliente);
+        this.clients.push(cliente);
       }
-      console.log(this.clientes)
-      
+      //console.log(this.clients)
     });
-
-   }
+   }  
+*/
    
 }

@@ -3,8 +3,8 @@ export interface client_model {
     name: string;
     lastname: string;
     age: number;
+    gender: string;
     phone: number;
-    address: string;
     start_date: Date;
     end_date: Date;
   }

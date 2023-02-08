@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { revenue_model } from 'src/app/models/revenue_model';
+import { RevenueService } from 'src/app/services/revenue_service/revenue.service';
 
 @Component({
   selector: 'app-revenue-registration',
@@ -6,5 +8,27 @@ import { Component } from '@angular/core';
   styleUrls: ['./revenue-registration.component.css']
 })
 export class RevenueRegistrationComponent {
+  value:number = 0;
+  kind_value:number = 0;
+  date:Date = new Date();
 
+  constructor(public revenueService:RevenueService){}
+
+  setValue(value:number){
+    this.value = value;
+  }
+
+  setKindrevenue(kind_value:number){
+    this.kind_value = kind_value;
+  }
+
+  setDate(event: { value: any; }){
+    let date:Date = event.value;
+    this.date = date;
+  }
+
+  postIngreso(){
+    let ingreso: revenue_model = {value:this.value, kind_value:this.kind_value, date:this.date };
+    this.revenueService.addRevenue(ingreso).subscribe(results => console.log(results));
+   }
 }

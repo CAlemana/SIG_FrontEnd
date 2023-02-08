@@ -1,1 +1,30 @@
-<p>revenue-registration works!</p>
+<h1 style="font-style: oblique; justify-content: center; display: flex;">Registrar nuevo ingreso</h1>
+<table>
+    <td>
+        <mat-card style="background-color: rgb(241, 240, 240);">
+            <mat-form-field>
+                <mat-label>Valor</mat-label>
+                <input #val (change)="setValue(+val.value)" matInput type="number" ngModel="valor">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Tipo de ingreso</mat-label>
+                <input #ing (change)="setKindrevenue(+ing.value)" matInput type="text" (ngModel)="kind_value">
+            </mat-form-field>            
+        </mat-card>
+    </td>
+    
+    <td>
+        <mat-card style="background-color: rgb(241, 240, 240);">
+            <mat-form-field>
+                <mat-label>Fecha mm/dd/aaaa</mat-label>
+                <input matInput [matDatepicker]="date" (dateChange)="setDate($event)">
+                <mat-datepicker-toggle matIconSuffix [for]="date"></mat-datepicker-toggle>
+                <mat-datepicker #date></mat-datepicker>
+            </mat-form-field>
+        </mat-card>
+    </td>
+</table>
+<div style="justify-content: center; display: flex;">
+    <button style="font-style: oblique;" mat-raised-button>Registrar <mat-icon>assignment</mat-icon></button>
+</div>
