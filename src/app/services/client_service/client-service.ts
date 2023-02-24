@@ -25,7 +25,7 @@ export class ClientService {
     return this.http.put<client_model>(this.URL_clientes, client);
   }
 
-  deleteCuenta(id: number): Observable<client_model> {
+  deleteClient(id: number): Observable<client_model> {
     return this.http.delete<client_model>(this.URL_clientes + id);
 
   }

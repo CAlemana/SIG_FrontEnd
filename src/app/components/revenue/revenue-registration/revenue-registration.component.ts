@@ -29,6 +29,13 @@ export class RevenueRegistrationComponent {
 
   postIngreso(){
     let ingreso: revenue_model = {value:this.value, kind_value:this.kind_value, date:this.date };
-    this.revenueService.addRevenue(ingreso).subscribe(results => console.log(results));
+    this.revenueService.addRevenue(ingreso).subscribe(results => {
+      this.reloadPage();
+    });
+   }
+
+   reloadPage(){
+    //delay(2000);
+    window.location.reload();
    }
 }

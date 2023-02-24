@@ -13,6 +13,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatTableModule} from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatListModule } from '@angular/material/list';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -39,42 +41,43 @@ import { RevenueTotalComponent } from './components/revenue/revenue-total/revenu
 @NgModule({
   declarations: [
     AppComponent,
+    SettingsComponent,
     LoginComponent,
     RegisterComponent,
-    SettingsComponent,
-    BalanceHistoryComponent,
-    BalanceTotalComponent,
-    ClientListComponent,
     ClientRegistrationComponent,
+    ClientListComponent,
     ClientRemainingDaysComponent,
     ExpenseHistoryComponent,
     ExpenseListComponent,
     ExpenseRegistrationComponent,
     ExpenseTotalComponent,
-    ImcComputationComponent,
-    ImcRegisteredListComponent,
     RevenueHistoryComponent,
     RevenueListComponent,
     RevenueRegistrationComponent,
-    RevenueTotalComponent
+    RevenueTotalComponent,
+    BalanceHistoryComponent,
+    BalanceTotalComponent,
+    ImcComputationComponent,
+    ImcRegisteredListComponent  
   
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
+    AppRoutingModule,
     MatSidenavModule,
     MatButtonModule,
-    MatSelectModule,
     MatFormFieldModule,
+    MatSelectModule,
     HttpClientModule,
-    BrowserAnimationsModule,
     MatCardModule,
     MatInputModule,
     MatIconModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatTableModule
+    MatTableModule,
+    MatExpansionModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

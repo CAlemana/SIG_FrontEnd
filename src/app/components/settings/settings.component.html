@@ -1,17 +1,119 @@
-<button mat-raised-button (click)="settingsSidenav.toggle()">Toggle drawer</button>
+<div style="background-color: rgb(190, 190, 190);">
+    <button mat-icon-button (click)="settingsSidenav.toggle()"><mat-icon>list</mat-icon></button>
+</div>
+
+
 <mat-drawer-container>
     
     <mat-drawer #settingsSidenav mode="side" position="start">
   
-        Aqui van las opciones del menu
-  
+        <mat-accordion multi>
+            <mat-expansion-panel >
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                    Clientes
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-list>
+                    <mat-list-item (click)="to_client_list(); settingsSidenav.toggle()" class="manage-control-options" role="listitem">Listado de clientes</mat-list-item>
+                    <mat-list-item (click)="to_client_registration(); settingsSidenav.toggle()" class="manage-control-options" role="listitem">Registro de clientes</mat-list-item>
+                    <mat-list-item (click)="to_client_remaining_days(); settingsSidenav.toggle()" class="manage-control-options" role="listitem">Dias restantes de los clientes</mat-list-item>
+                </mat-list>
+            </mat-expansion-panel>
+        </mat-accordion>
+
+
+        <mat-accordion multi>
+            <mat-expansion-panel >
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                    Ingresos
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-list>
+                    <mat-list-item (click)="to_revenue_registration(); settingsSidenav.toggle()" class="manage-control-options" role="listitem">Registrar ingreso</mat-list-item>
+                    <mat-list-item (click)="to_revenue_list(); settingsSidenav.toggle()" class="manage-control-options" role="listitem">Lista de ingresos</mat-list-item>
+                    <mat-list-item (click)="to_revenue_total(); settingsSidenav.toggle()" class="manage-control-options" role="listitem">Total de ingresos</mat-list-item>
+                    <mat-list-item (click)="to_revenue_history(); settingsSidenav.toggle()" class="manage-control-options" role="listitem">Historial de ingresos</mat-list-item>
+                </mat-list>
+            </mat-expansion-panel>
+        </mat-accordion>
+
+
+        <mat-accordion multi>
+            <mat-expansion-panel >
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                    Gastos
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-list>
+                    <mat-list-item (click)="to_expense_registration(); settingsSidenav.toggle()" class="manage-control-options" role="listitem">Registrar gasto</mat-list-item>
+                    <mat-list-item (click)="to_expense_list(); settingsSidenav.toggle()" class="manage-control-options" role="listitem">Lista de gasto</mat-list-item>
+                    <mat-list-item (click)="to_expense_total(); settingsSidenav.toggle()" class="manage-control-options" role="listitem">Total de gasto</mat-list-item>
+                    <mat-list-item (click)="to_expense_history(); settingsSidenav.toggle()" class="manage-control-options" role="listitem">Historial de gasto</mat-list-item>
+                </mat-list>
+            </mat-expansion-panel>
+        </mat-accordion>
+
+
+        <mat-accordion multi>
+            <mat-expansion-panel >
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                    Balance
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-list>
+                    <mat-list-item (click)="to_balance_total(); settingsSidenav.toggle()" class="manage-control-options" role="listitem">Totalizar balance</mat-list-item>
+                    <mat-list-item (click)="to_balance_history(); settingsSidenav.toggle()" class="manage-control-options" role="listitem">Historial de balances</mat-list-item>
+                </mat-list>
+            </mat-expansion-panel>
+        </mat-accordion>
+
+
+        <mat-accordion multi>
+            <mat-expansion-panel >
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                    IMC
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-list>
+                    <mat-list-item (click)="to_imc_computation(); settingsSidenav.toggle()" class="manage-control-options" role="listitem">Calcular IMC</mat-list-item>
+                    <mat-list-item (click)="to_imc_registered_list(); settingsSidenav.toggle()" class="manage-control-options" role="listitem">Lista IMC registrados</mat-list-item>
+                </mat-list>
+            </mat-expansion-panel>
+        </mat-accordion>
     </mat-drawer>
   
   
   
     <mat-drawer-content>
      
-        aqui va el contenido principal
+        <app-client-list [hidden]="client_list"></app-client-list>
+        <app-client-registration [hidden]="client_registration"></app-client-registration>
+        <app-client-remaining-days [hidden]="client_remaining_days"></app-client-remaining-days>
+
+        <app-expense-history [hidden]="expense_history"></app-expense-history>
+        <app-expense-list [hidden]="expense_list"></app-expense-list>
+        <app-expense-registration [hidden]="expense_registration"></app-expense-registration>
+        <app-expense-total [hidden]="expense_total"></app-expense-total>
+
+        <app-revenue-history [hidden]="revenue_history"></app-revenue-history>
+        <app-revenue-list [hidden]="revenue_list"></app-revenue-list>
+        <app-revenue-registration [hidden]="revenue_registration"></app-revenue-registration>
+        <app-revenue-total [hidden]="revenue_total"></app-revenue-total>
+
+        <app-balance-history [hidden]="balance_history"></app-balance-history>
+        <app-balance-total [hidden]="balance_total"></app-balance-total>
+
+        <app-imc-computation [hidden]="imc_computation"></app-imc-computation>
+        <app-imc-registered-list [hidden]="imc_registered_list"></app-imc-registered-list>
+        
+        <div style="justify-content: center; display: flex; margin-top: 10%; margin-bottom: 10%;">
+            <img src="../../../assets/Logo_login.jpg" />
+        </div>
 
     </mat-drawer-content>
-  </mat-drawer-container>
+</mat-drawer-container> 

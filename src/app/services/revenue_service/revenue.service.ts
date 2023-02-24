@@ -16,16 +16,15 @@ export class RevenueService {
     return this.http.get<revenue_model[]>(this.URL_ingresos);
   }
 
-  addRevenue(client: revenue_model): Observable<string> {
-    return this.http.post<string>(this.URL_ingresos, client);
+  addRevenue(revenue: revenue_model): Observable<string> {
+    return this.http.post<string>(this.URL_ingresos, revenue);
   }
 
-  editRevenue(client: revenue_model): Observable<revenue_model>{
-    return this.http.put<revenue_model>(this.URL_ingresos, client);
+  editRevenue(revenue: revenue_model): Observable<revenue_model>{
+    return this.http.put<revenue_model>(this.URL_ingresos, revenue);
   }
 
   deleteRevenue(id: number): Observable<revenue_model> {
     return this.http.delete<revenue_model>(this.URL_ingresos + id);
-
   }
 }

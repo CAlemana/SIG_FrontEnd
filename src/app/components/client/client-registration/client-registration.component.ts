@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { client_model } from 'src/app/models/client_model';
 import { ClientService } from 'src/app/services/client_service/client-service';
 
@@ -17,7 +18,7 @@ export class ClientRegistrationComponent {
   start_date:Date = new Date();
   end_date:Date = new Date();
 
-  constructor(public clientService:ClientService){}
+  constructor(private router: Router, public clientService:ClientService){}
 
   setCedula(cedula:number){
     this.cedula = cedula;
@@ -55,7 +56,16 @@ export class ClientRegistrationComponent {
 
   postClientes(){
     let cliente: client_model = {cedula:this.cedula, name:this.name, lastname:this.lastname, age:this.age, gender:this.gender, phone:this.phone, start_date:this.start_date, end_date:this.end_date};
-    this.clientService.addClient(cliente).subscribe(results => console.log(results));
+    this.clientService.addClient(cliente).subscribe(results => {
+      this.reloadPage();
+    }
+      
+    );
+   }
+
+   reloadPage(){
+    //delay(2000);
+    window.location.reload();
    }
 
 }
