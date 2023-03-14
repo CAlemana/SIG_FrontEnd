@@ -15,23 +15,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
+import {MatTabsModule} from '@angular/material/tabs';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { SettingsComponent } from './components/settings/settings.component';
-import { BalanceHistoryComponent } from './components/balance/balance-history/balance-history.component';
 import { BalanceTotalComponent } from './components/balance/balance-total/balance-total.component';
 import { ClientListComponent } from './components/client/client-list/client-list.component';
 import { ClientRegistrationComponent } from './components/client/client-registration/client-registration.component';
 import { ClientRemainingDaysComponent } from './components/client/client-remaining-days/client-remaining-days.component';
-import { ExpenseHistoryComponent } from './components/expense/expense-history/expense-history.component';
 import { ExpenseListComponent } from './components/expense/expense-list/expense-list.component';
 import { ExpenseRegistrationComponent } from './components/expense/expense-registration/expense-registration.component';
 import { ExpenseTotalComponent } from './components/expense/expense-total/expense-total.component';
 import { ImcComputationComponent } from './components/imc/imc-computation/imc-computation.component';
-import { ImcRegisteredListComponent } from './components/imc/imc-registered-list/imc-registered-list.component';
-import { RevenueHistoryComponent } from './components/revenue/revenue-history/revenue-history.component';
 import { RevenueListComponent } from './components/revenue/revenue-list/revenue-list.component';
 import { RevenueRegistrationComponent } from './components/revenue/revenue-registration/revenue-registration.component';
 import { RevenueTotalComponent } from './components/revenue/revenue-total/revenue-total.component';
@@ -47,18 +44,14 @@ import { RevenueTotalComponent } from './components/revenue/revenue-total/revenu
     ClientRegistrationComponent,
     ClientListComponent,
     ClientRemainingDaysComponent,
-    ExpenseHistoryComponent,
     ExpenseListComponent,
     ExpenseRegistrationComponent,
     ExpenseTotalComponent,
-    RevenueHistoryComponent,
     RevenueListComponent,
     RevenueRegistrationComponent,
     RevenueTotalComponent,
-    BalanceHistoryComponent,
     BalanceTotalComponent,
     ImcComputationComponent,
-    ImcRegisteredListComponent  
   
   ],
   imports: [
@@ -77,7 +70,8 @@ import { RevenueTotalComponent } from './components/revenue/revenue-total/revenu
     MatNativeDateModule,
     MatTableModule,
     MatExpansionModule,
-    MatListModule
+    MatListModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
