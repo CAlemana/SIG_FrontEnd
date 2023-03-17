@@ -14,7 +14,15 @@
 
             <mat-form-field>
                 <mat-label>Genero</mat-label>
-                <input #gen (change)="setGender(gen.value)" matInput type="text" (ngModel)="gender">
+                <mat-select>
+                    <mat-option value="gender" (click)="setGender(gender)" *ngFor="let gender of genders">{{gender}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Estatura en metros</mat-label>
+                <input #hei (change)="setHeight(+hei.value)" step="0.1" min="1.0" matInput type="number" (ngModel)="height">
             </mat-form-field>
 
             <mat-form-field>
@@ -44,11 +52,17 @@
             </mat-form-field>
 
             <mat-form-field>
+                <mat-label>Peso en Kilogramos</mat-label>
+                <input #wei (change)="setWeight(+wei.value)" step="0.1" min="1.0" matInput type="number" (ngModel)="weight">
+            </mat-form-field>
+
+            <mat-form-field>
                 <mat-label>Fecha de fin mm/dd/aaaa</mat-label>
                 <input matInput [matDatepicker]="end_date" (dateChange)="setEnddate($event)">
                 <mat-datepicker-toggle matIconSuffix [for]="end_date"></mat-datepicker-toggle>
                 <mat-datepicker #end_date></mat-datepicker>
-            </mat-form-field>
+            </mat-form-field>           
+
         </mat-card>
     </td>
 </table>

@@ -1,5 +1,5 @@
 export interface expense_model {
-    value: number;    
-    kind_value: number;
-    date: Date;
-  }
+  value: number;    
+  kind_value: string;
+  date: string;
+}

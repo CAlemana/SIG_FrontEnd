@@ -11,7 +11,7 @@ import { ClientService } from 'src/app/services/client_service/client-service';
 })
 export class ClientListComponent {
   clients: client_model[] = [];
-  displayedColumns: string[] = ['cedula', 'name', 'lastname', 'age', 'gender', 'phone', 'start_date', 'end_date', 'delete'];
+  displayedColumns: string[] = ['cedula', 'name', 'lastname', 'age', 'gender', 'height', 'weight', 'phone', 'start_date', 'end_date', 'bmi', 'delete'];
   dataSource = this.clients;
 
   constructor(private router: Router, public clientService:ClientService){}
@@ -54,5 +54,5 @@ export class ClientListComponent {
   //delay(20000);
   window.location.reload();
  }
-   
+
 }

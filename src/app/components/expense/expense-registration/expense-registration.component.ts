@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { expense_model } from 'src/app/models/expense_model';
 import { ExpenseService } from 'src/app/services/expense_service/expense.service';
 
+
 @Component({
   selector: 'app-expense-registration',
   templateUrl: './expense-registration.component.html',
@@ -9,8 +10,8 @@ import { ExpenseService } from 'src/app/services/expense_service/expense.service
 })
 export class ExpenseRegistrationComponent {
   value:number = 0;
-  kind_value:number = 0;
-  date:Date = new Date();
+  kind_value:string = '';
+  date:string = '';
 
   constructor(public expenseService:ExpenseService){}
 
@@ -18,13 +19,17 @@ export class ExpenseRegistrationComponent {
     this.value = value;
   }
 
-  setKindrevenue(kind_value:number){
+  setKindrevenue(kind_value:string){
     this.kind_value = kind_value;
   }
 
   setDate(event: { value: any; }){
     let date:Date = event.value;
-    this.date = date;
+    const day = date.getDate().toString().padStart(2, '0'); // obtiene el día y lo convierte en una cadena con cero a la izquierda si es necesario
+    const month = (date.getMonth() + 1).toString().padStart(2, '0'); // obtiene el mes y lo convierte en una cadena con cero a la izquierda si es necesario (agrega 1 porque los meses en JavaScript comienzan en 0)
+    const year = date.getFullYear().toString(); // obtiene el año como cadena
+    const formattedDate = `${day}/${month}/${year}`; // une el día, el mes y el año en el formato dd/mm/yyyy
+    this.date = formattedDate;
   }
 
   postGasto(){

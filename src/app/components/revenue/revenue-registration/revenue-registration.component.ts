@@ -9,8 +9,8 @@ import { RevenueService } from 'src/app/services/revenue_service/revenue.service
 })
 export class RevenueRegistrationComponent {
   value:number = 0;
-  kind_value:number = 0;
-  date:Date = new Date();
+  kind_value:string = "";
+  date:string = "";
 
   constructor(public revenueService:RevenueService){}
 
@@ -18,12 +18,12 @@ export class RevenueRegistrationComponent {
     this.value = value;
   }
 
-  setKindrevenue(kind_value:number){
+  setKindrevenue(kind_value:string){
     this.kind_value = kind_value;
   }
 
   setDate(event: { value: any; }){
-    let date:Date = event.value;
+    let date:string = event.value;
     this.date = date;
   }
 

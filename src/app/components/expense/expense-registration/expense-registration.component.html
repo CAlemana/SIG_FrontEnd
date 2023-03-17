@@ -9,7 +9,7 @@
 
             <mat-form-field>
                 <mat-label>Tipo de ingreso</mat-label>
-                <input #ing (change)="setKindrevenue(+ing.value)" matInput type="text" (ngModel)="kind_value">
+                <input #ing (change)="setKindrevenue(ing.value)" matInput type="text" (ngModel)="kind_value">
             </mat-form-field>            
         </mat-card>
     </td>
@@ -28,3 +28,4 @@
 <div style="justify-content: center; display: flex;">
     <button (click)="postGasto()" style="font-style: oblique;" mat-raised-button>Registrar <mat-icon>assignment</mat-icon></button>
 </div>
+
