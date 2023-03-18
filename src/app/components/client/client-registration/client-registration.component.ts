@@ -5,7 +5,6 @@ import { client_model } from 'src/app/models/client_model';
 import { ClientService } from 'src/app/services/client_service/client-service';
 import { ImcService } from 'src/app/services/imc_service/imc.service';
 
-
 @Component({
   selector: 'app-client-registration',
   templateUrl: './client-registration.component.html',
