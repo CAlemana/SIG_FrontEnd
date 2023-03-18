@@ -8,7 +8,8 @@ import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
 })
 export class ClientService {
 
-  URL_clientes: string = "https://sig-api.onrender.com/api/clients/";
+   
+   URL_clientes: string = "https://sig-api.onrender.com/api/clients/";
   
   
   constructor(private http: HttpClient) { }
