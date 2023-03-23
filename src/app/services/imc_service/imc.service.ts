@@ -15,7 +15,7 @@ export class ImcService {
   constructor(private http: HttpClient) { }
 
   computeIMC(height:number, weight:number){
-    let imc:number = weight / (weight*weight);
+    let imc:number = weight / (height*height);
     return imc;
   }
 
