@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { BalanceTotalComponent } from './components/balance/balance-total/balance-total.component';
-import { ImcComputationComponent } from './components/imc/imc-computation/imc-computation.component';
 import { ClientListComponent } from './components/client/client-list/client-list.component';
 import { ClientRegistrationComponent } from './components/client/client-registration/client-registration.component';
 import { ClientRemainingDaysComponent } from './components/client/client-remaining-days/client-remaining-days.component';
@@ -24,7 +23,6 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'settings', component: SettingsComponent },
   { path: 'balance_total', component: BalanceTotalComponent },
-  { path: 'imc_computation', component: ImcComputationComponent },
   { path: 'client_list', component: ClientListComponent },
   { path: 'client_registration', component: ClientRegistrationComponent },
   { path: 'client_remaining_days', component: ClientRemainingDaysComponent },

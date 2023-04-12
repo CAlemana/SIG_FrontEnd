@@ -71,18 +71,7 @@
         </mat-accordion>
 
 
-        <mat-accordion multi>
-            <mat-expansion-panel >
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                    IMC
-                    </mat-panel-title>
-                </mat-expansion-panel-header>
-                <mat-list>
-                    <mat-list-item (click)="to_imc_computation(); settingsSidenav.toggle()" class="manage-control-options" role="listitem">Actualizar IMC</mat-list-item>
-                </mat-list>
-            </mat-expansion-panel>
-        </mat-accordion>
+    
     </mat-drawer>
     <mat-drawer-content>
      
@@ -101,7 +90,6 @@
 
         <app-balance-total [hidden]="balance_total"></app-balance-total>
 
-        <app-imc-computation [hidden]="imc_computation"></app-imc-computation>
         
         
         <div style="justify-content: center; display: flex; margin-top: 10%; margin-bottom: 10%;">

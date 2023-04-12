@@ -19,7 +19,7 @@ export class SettingsComponent {
   revenue_registration = true;
   revenue_total = true;
 
-  imc_computation = true;
+  
 
   balance_total = true;
 
@@ -37,7 +37,7 @@ export class SettingsComponent {
     this.revenue_registration = true;
     this.revenue_total = true;
 
-    this.imc_computation = true;
+    
     
     this.balance_total = true;
   }
@@ -57,7 +57,7 @@ export class SettingsComponent {
     this.revenue_registration = true;
     this.revenue_total = true;
 
-    this.imc_computation = true;
+    
     
     this.balance_total = true;
   }
@@ -77,7 +77,7 @@ export class SettingsComponent {
     this.revenue_registration = true;
     this.revenue_total = true;
 
-    this.imc_computation = true;
+    
     
     this.balance_total = true;
   }
@@ -97,7 +97,7 @@ export class SettingsComponent {
     this.revenue_registration = true;
     this.revenue_total = true;
 
-    this.imc_computation = true;
+   
     
     this.balance_total = true;
   }
@@ -117,7 +117,7 @@ export class SettingsComponent {
     this.revenue_registration = true;
     this.revenue_total = true;
 
-    this.imc_computation = true;
+    
     
     this.balance_total = true;
   }
@@ -137,7 +137,7 @@ export class SettingsComponent {
     this.revenue_registration = true;
     this.revenue_total = true;
 
-    this.imc_computation = true;
+   
     
     this.balance_total = true;
   }
@@ -157,7 +157,7 @@ export class SettingsComponent {
     this.revenue_registration = true;
     this.revenue_total = true;
 
-    this.imc_computation = true;
+    
     
     this.balance_total = true;
   }
@@ -180,7 +180,7 @@ export class SettingsComponent {
     this.revenue_registration = true;
     this.revenue_total = true;
 
-    this.imc_computation = true;
+
     
     this.balance_total = true;
   }
@@ -200,7 +200,6 @@ export class SettingsComponent {
     this.revenue_registration = false;
     this.revenue_total = true;
 
-    this.imc_computation = true;
     
     this.balance_total = true;
   }
@@ -220,30 +219,11 @@ export class SettingsComponent {
     this.revenue_registration = true;
     this.revenue_total = false;
 
-    this.imc_computation = true;
+  
     
     this.balance_total = true;
   }
 
-
-  to_imc_computation(){
-    this.client_list = true;
-    this.client_registration = true;
-    this.client_remaining_days = true;
-    this.client_update = true;
-
-    this.expense_list = true;
-    this.expense_registration = true;
-    this.expense_total = true;
-
-    this.revenue_list = true;
-    this.revenue_registration = true;
-    this.revenue_total = true;
-
-    this.imc_computation = false;
-    
-    this.balance_total = true;
-  }
 
   to_balance_total(){
     this.client_list = true;
@@ -259,7 +239,7 @@ export class SettingsComponent {
     this.revenue_registration = true;
     this.revenue_total = true;
 
-    this.imc_computation = true;
+  
     
     this.balance_total = false;
   }

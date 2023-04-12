@@ -33,7 +33,6 @@ import { ExpenseTotalComponent } from './components/expense/expense-total/expens
 import { RevenueListComponent } from './components/revenue/revenue-list/revenue-list.component';
 import { RevenueTotalComponent } from './components/revenue/revenue-total/revenue-total.component';
 import { BalanceTotalComponent } from './components/balance/balance-total/balance-total.component';
-import { ImcComputationComponent } from './components/imc/imc-computation/imc-computation.component';
 import { ClientUpdateComponent } from './components/client/client-update/client-update.component';
 
 @NgModule({
@@ -52,7 +51,7 @@ import { ClientUpdateComponent } from './components/client/client-update/client-
     RevenueRegistrationComponent,
     RevenueTotalComponent,
     BalanceTotalComponent,
-    ImcComputationComponent,
+  
     ClientUpdateComponent 
   ],
   imports: [

@@ -1,4 +1,4 @@
-<h1 style="font-style: oblique; justify-content: center; display: flex;">Dias restantes</h1>
+<h1 style="font-style: oblique; justify-content: center; display: flex;">Dias restantes (fecha final - fecha actual)</h1>
 
 <table style="background-color: rgb(53, 52, 52);" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
@@ -32,3 +32,4 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+  
