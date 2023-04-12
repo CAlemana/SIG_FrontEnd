@@ -1,0 +1,85 @@
+<h1 style="font-style: oblique; justify-content: center; display: flex;">Actualizacion de clientes</h1>
+
+<mat-form-field style="justify-content: center; display: flex;">
+    <mat-label>Seleccione un cliente</mat-label>
+    <input matInput [matAutocomplete]="auto" />
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let client of clients" [value]="client.name+' '+client.lastname" (click)="selectClient(client.cedula)">
+        {{ client.cedula }} : {{ client.name }}  {{ client.lastname }}
+      </mat-option>
+    </mat-autocomplete>
+</mat-form-field>
+
+<mat-card style="background-color: rgb(230, 228, 228);">
+    <table>
+        <td>
+            <mat-card style="background-color: rgb(241, 240, 240);">
+                <mat-form-field>
+                    <mat-label>Cedula <mat-icon>fingerprint</mat-icon></mat-label>
+                    <input [disabled]="true" #ced (change)="setCedula(+ced.value)" matInput type="number" (ngModel)="cedula" [value]="cedula">
+                </mat-form-field>
+    
+                <mat-form-field>
+                    <mat-label>Nombres</mat-label>
+                    <input #nom (change)="setName(nom.value)" matInput type="text" (ngModel)="name" [value]="name">
+                </mat-form-field>
+    
+                <mat-form-field>
+                    <mat-label>{{gender}}</mat-label>
+                    <mat-select>
+                        <mat-option (click)="setGender(genero)" *ngFor="let genero of genders">{{genero}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>                 
+    
+                <mat-form-field>
+                    <mat-label>Estatura en metros</mat-label>
+                    <input #hei (change)="setHeight(+hei.value)" step="0.1" min="1.0" matInput type="number" (ngModel)="height" [value]="height">
+                </mat-form-field>
+    
+                <mat-form-field>
+                    <mat-label>Fecha de inicio mm/dd/aaaa</mat-label>
+                    <input matInput [matDatepicker]="start_date" (dateChange)="setStartdate($event)" [value]="startDate">
+                    <mat-datepicker-toggle matIconSuffix [for]="start_date"></mat-datepicker-toggle>
+                    <mat-datepicker #start_date></mat-datepicker>
+                </mat-form-field>
+            </mat-card>
+        </td>
+        
+        <td>
+            <mat-card style="background-color: rgb(241, 240, 240);">
+                <mat-form-field>
+                    <mat-label>Edad</mat-label>
+                    <input #edad (change)="setAge(+edad.value)" matInput type="number" (ngModel)="age" [value]="age">
+                </mat-form-field>
+    
+                <mat-form-field>
+                    <mat-label>Apellidos</mat-label>
+                    <input #ape (change)="setLastname(ape.value)"  matInput type="text" (ngModel)="lastname" [value]="lastname">
+                </mat-form-field>
+    
+                <mat-form-field>
+                    <mat-label>Telefono</mat-label>
+                    <input #tel (change)="setPhone(+tel.value)" matInput type="number" (ngModel)="phone" [value]="phone">
+                </mat-form-field>
+    
+                <mat-form-field>
+                    <mat-label>Peso en Kilogramos</mat-label>
+                    <input #wei (change)="setWeight(+wei.value)" step="0.1" min="1.0" matInput type="number" (ngModel)="weight" [value]="weight">
+                </mat-form-field>
+    
+                <mat-form-field>
+                    <mat-label>Fecha de fin mm/dd/aaaa</mat-label>
+                    <input matInput [matDatepicker]="end_date" (dateChange)="setEnddate($event)" [value]="endDate">
+                    <mat-datepicker-toggle matIconSuffix [for]="end_date"></mat-datepicker-toggle>
+                    <mat-datepicker #end_date></mat-datepicker>
+                </mat-form-field>           
+    
+            </mat-card>
+        </td>
+    </table>
+    <div style="justify-content: center; display: flex;">
+        <button (click)="updateClients()" style="font-style: oblique;" mat-raised-button>Actualizar <mat-icon>assignment</mat-icon></button>
+    </div>
+</mat-card>
+  

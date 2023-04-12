@@ -10,7 +10,7 @@ export class ClientService {
 
    
    URL_clientes: string = "https://sig-api.onrender.com/api/clients/";
-  
+    //URL_clientes: string = "http://localhost:3000/api/clients/"; 
   
   constructor(private http: HttpClient) { }
 
@@ -23,7 +23,7 @@ export class ClientService {
   }
 
   editClient(client: client_model): Observable<client_model>{
-    return this.http.put<client_model>(this.URL_clientes, client);
+    return this.http.put<client_model>(this.URL_clientes+client.cedula, client);
   }
 
   deleteClient(id: number): Observable<client_model> {

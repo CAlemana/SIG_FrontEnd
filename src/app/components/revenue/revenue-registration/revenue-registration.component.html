@@ -4,7 +4,7 @@
         <mat-card style="background-color: rgb(241, 240, 240);">
             <mat-form-field>
                 <mat-label>Valor</mat-label>
-                <input #val (change)="setValue(+val.value)" matInput type="number" ngModel="valor">
+                <input #val (change)="setValue(+val.value)" matInput type="number" (ngModel)="value">
             </mat-form-field>
 
             <mat-form-field>
@@ -26,5 +26,5 @@
     </td>
 </table>
 <div style="justify-content: center; display: flex;">
-    <button style="font-style: oblique;" mat-raised-button>Registrar <mat-icon>assignment</mat-icon></button>
+    <button style="font-style: oblique;" (click)="postIngreso()" mat-raised-button>Registrar <mat-icon>assignment</mat-icon></button>
 </div>

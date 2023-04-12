@@ -8,8 +8,9 @@ import { revenue_model } from 'src/app/models/revenue_model';
 })
 export class RevenueService {
 
-  URL_ingresos: string = "https://sig-api.onrender.com/api/revenues/";
-  
+  URL_ingresos: string = "https://sig-api.onrender.com/api/revenues/"; 
+    //URL_ingresos: string = "http://localhost:3000/api/revenues/";
+
   constructor(private http: HttpClient) { }
 
   getRevenues(): Observable<revenue_model[]> {

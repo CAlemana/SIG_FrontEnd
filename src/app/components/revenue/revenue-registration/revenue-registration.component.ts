@@ -8,8 +8,9 @@ import { RevenueService } from 'src/app/services/revenue_service/revenue.service
   styleUrls: ['./revenue-registration.component.css']
 })
 export class RevenueRegistrationComponent {
+
   value:number = 0;
-  kind_value:string = "";
+  kind_value:string = '';
   date:string = "";
 
   constructor(public revenueService:RevenueService){}
@@ -23,8 +24,12 @@ export class RevenueRegistrationComponent {
   }
 
   setDate(event: { value: any; }){
-    let date:string = event.value;
-    this.date = date;
+    let date:Date = event.value;
+    const day = date.getDate().toString().padStart(2, '0'); // obtiene el día y lo convierte en una cadena con cero a la izquierda si es necesario
+    const month = (date.getMonth() + 1).toString().padStart(2, '0'); // obtiene el mes y lo convierte en una cadena con cero a la izquierda si es necesario (agrega 1 porque los meses en JavaScript comienzan en 0)
+    const year = date.getFullYear().toString(); // obtiene el año como cadena
+    const formattedDate = `${month}/${day}/${year}`; // une el día, el mes y el año en el formato dd/mm/yyyy
+    this.date = formattedDate;
   }
 
   postIngreso(){

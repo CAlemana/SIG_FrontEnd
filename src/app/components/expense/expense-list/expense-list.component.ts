@@ -10,7 +10,7 @@ import { ExpenseService } from 'src/app/services/expense_service/expense.service
 })
 export class ExpenseListComponent {
   expenses: expense_model[] = [];
-  displayedColumns: string[] = ['value', 'date', 'kind'];
+  displayedColumns: string[] = ['id', 'value', 'date', 'kind_value', 'delete'];
   dataSource = this.expenses;
 
   
@@ -33,10 +33,10 @@ export class ExpenseListComponent {
     this.expenses.push(expense);
   }
 
- deleteExpense(cedula:number){
+ deleteExpense(id:number){
   let lista: expense_model[] = [];
 
-  this.expenseService.deleteExpense(cedula).subscribe(data =>{ 
+  this.expenseService.deleteExpense(id).subscribe(data =>{ 
   })
 
   this.expenseService.getExpenses().subscribe ((data: expense_model[]) => {

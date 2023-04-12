@@ -9,6 +9,7 @@ import { expense_model } from 'src/app/models/expense_model';
 export class ExpenseService {
 
   URL_gastos: string = "https://sig-api.onrender.com/api/expenses/";
+   //URL_gastos: string = "http://localhost:3000/api/expenses/";
   
   constructor(private http: HttpClient) { }
 

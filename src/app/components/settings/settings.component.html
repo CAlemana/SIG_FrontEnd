@@ -18,6 +18,8 @@
                     <mat-list-item (click)="to_client_list(); settingsSidenav.toggle()" class="manage-control-options" role="listitem">Listado de clientes</mat-list-item>
                     <mat-list-item (click)="to_client_registration(); settingsSidenav.toggle()" class="manage-control-options" role="listitem">Registro de clientes</mat-list-item>
                     <mat-list-item (click)="to_client_remaining_days(); settingsSidenav.toggle()" class="manage-control-options" role="listitem">Dias restantes de los clientes</mat-list-item>
+                    <mat-list-item (click)="to_client_update(); settingsSidenav.toggle()" class="manage-control-options" role="listitem">Actualizar clientes</mat-list-item>
+                
                 </mat-list>
             </mat-expansion-panel>
         </mat-accordion>
@@ -33,8 +35,7 @@
                 <mat-list>
                     <mat-list-item (click)="to_revenue_registration(); settingsSidenav.toggle()" class="manage-control-options" role="listitem">Registrar ingreso</mat-list-item>
                     <mat-list-item (click)="to_revenue_list(); settingsSidenav.toggle()" class="manage-control-options" role="listitem">Lista de ingresos</mat-list-item>
-                    <mat-list-item (click)="to_revenue_total(); settingsSidenav.toggle()" class="manage-control-options" role="listitem">Ingresos Mensuales</mat-list-item>
-                    
+                    <mat-list-item (click)="to_revenue_total(); settingsSidenav.toggle()" class="manage-control-options" role="listitem">Ingresos por año y mes</mat-list-item>
                 </mat-list>
             </mat-expansion-panel>
         </mat-accordion>
@@ -50,8 +51,7 @@
                 <mat-list>
                     <mat-list-item (click)="to_expense_registration(); settingsSidenav.toggle()" class="manage-control-options" role="listitem">Registrar gasto</mat-list-item>
                     <mat-list-item (click)="to_expense_list(); settingsSidenav.toggle()" class="manage-control-options" role="listitem">Lista de gasto</mat-list-item>
-                    <mat-list-item (click)="to_expense_total(); settingsSidenav.toggle()" class="manage-control-options" role="listitem">Gastos Mensuales</mat-list-item>
-                    
+                    <mat-list-item (click)="to_expense_total(); settingsSidenav.toggle()" class="manage-control-options" role="listitem">Gastos por año y mes</mat-list-item>
                 </mat-list>
             </mat-expansion-panel>
         </mat-accordion>
@@ -65,8 +65,7 @@
                     </mat-panel-title>
                 </mat-expansion-panel-header>
                 <mat-list>
-                    <mat-list-item (click)="to_balance_total(); settingsSidenav.toggle()" class="manage-control-options" role="listitem">Balance Mensual</mat-list-item>
-                   
+                    <mat-list-item (click)="to_balance_total(); settingsSidenav.toggle()" class="manage-control-options" role="listitem">Balance por mes</mat-list-item>
                 </mat-list>
             </mat-expansion-panel>
         </mat-accordion>
@@ -85,30 +84,25 @@
             </mat-expansion-panel>
         </mat-accordion>
     </mat-drawer>
-  
-  
-  
     <mat-drawer-content>
      
         <app-client-list [hidden]="client_list"></app-client-list>
         <app-client-registration [hidden]="client_registration"></app-client-registration>
         <app-client-remaining-days [hidden]="client_remaining_days"></app-client-remaining-days>
+        <app-client-update [hidden]="client_update"></app-client-update>
 
-       
         <app-expense-list [hidden]="expense_list"></app-expense-list>
         <app-expense-registration [hidden]="expense_registration"></app-expense-registration>
         <app-expense-total [hidden]="expense_total"></app-expense-total>
 
-        
         <app-revenue-list [hidden]="revenue_list"></app-revenue-list>
         <app-revenue-registration [hidden]="revenue_registration"></app-revenue-registration>
         <app-revenue-total [hidden]="revenue_total"></app-revenue-total>
 
-        
         <app-balance-total [hidden]="balance_total"></app-balance-total>
 
         <app-imc-computation [hidden]="imc_computation"></app-imc-computation>
-       
+        
         
         <div style="justify-content: center; display: flex; margin-top: 10%; margin-bottom: 10%;">
             <img src="../../../assets/Logo_login.jpg" />

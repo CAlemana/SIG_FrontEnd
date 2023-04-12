@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { delay } from 'rxjs';
 import { client_model } from 'src/app/models/client_model';
 import { ClientService } from 'src/app/services/client_service/client-service';
-
 
 @Component({
   selector: 'app-client-list',
@@ -11,7 +12,7 @@ import { ClientService } from 'src/app/services/client_service/client-service';
 })
 export class ClientListComponent {
   clients: client_model[] = [];
-  displayedColumns: string[] = ['cedula', 'name', 'lastname', 'age', 'gender', 'height', 'weight', 'phone', 'start_date', 'end_date', 'bmi', 'delete'];
+  displayedColumns: string[] = ['cedula', 'name', 'lastname', 'age', 'gender', 'height', 'weight', 'phone', 'start_date', 'end_date', 'imc', 'delete'];
   dataSource = this.clients;
 
   constructor(private router: Router, public clientService:ClientService){}

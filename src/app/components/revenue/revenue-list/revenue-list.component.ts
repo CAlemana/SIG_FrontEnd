@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { revenue_model } from 'src/app/models/revenue_model';
 import { RevenueService } from 'src/app/services/revenue_service/revenue.service';
 
-
 @Component({
   selector: 'app-revenue-list',
   templateUrl: './revenue-list.component.html',
@@ -11,7 +10,7 @@ import { RevenueService } from 'src/app/services/revenue_service/revenue.service
 })
 export class RevenueListComponent {
   revenues: revenue_model[] = [];
-  displayedColumns: string[] = ['value', 'date', 'kind'];
+  displayedColumns: string[] = ['id', 'value', 'date', 'kind_value', 'delete'];
   dataSource = this.revenues;
 
   constructor(private router: Router, private revenueService:RevenueService){}
@@ -33,10 +32,10 @@ export class RevenueListComponent {
     this.revenues.push(revenue);
   }
 
- deleteRevenues(cedula:number){
+ deleteRevenue(id:number){
   let lista: revenue_model[] = [];
 
-  this.revenueService.deleteRevenue(cedula).subscribe(data =>{ 
+  this.revenueService.deleteRevenue(id).subscribe(data =>{ 
   })
 
   this.revenueService.getRevenues().subscribe ((data: revenue_model[]) => {
