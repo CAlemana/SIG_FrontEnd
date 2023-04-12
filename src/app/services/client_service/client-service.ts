@@ -23,7 +23,7 @@ export class ClientService {
   }
 
   editClient(client: client_model): Observable<client_model>{
-    return this.http.put<client_model>(this.URL_clientes+client.cedula, client);
+    return this.http.put<client_model>(this.URL_clientes+client.cedula, {name:client.name, lastname:client.lastname, age:client.age, gender:client.gender, height:client.height, weight:client.weight, phone:client.phone, start_date:client.start_date, end_date:client.end_date, imc:client.imc});
   }
 
   deleteClient(id: number): Observable<client_model> {
