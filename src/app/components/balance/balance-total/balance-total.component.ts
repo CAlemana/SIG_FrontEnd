@@ -5,6 +5,7 @@ import { month_model } from 'src/app/models/month_model';
 import { revenue_model } from 'src/app/models/revenue_model';
 import { ExpenseService } from 'src/app/services/expense_service/expense.service';
 import { RevenueService } from 'src/app/services/revenue_service/revenue.service';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-balance-total',
@@ -23,28 +24,17 @@ export class BalanceTotalComponent {
 
   ngOnInit(): void { 
     this.expenses = [];
-    let listaExp: expense_model[] = [];
-    this.expenseService.getExpenses().subscribe ((data: expense_model[]) => {
-      listaExp = data;
-      for (let expense of listaExp) {
-        this.addToListE(expense);  
-      }   
-      //this.getDates_exp(this.expenses);
-    });
-
     this.revenues = [];
-    let listaRev: revenue_model[] = [];
-    this.revenueService.getRevenues().subscribe ((data: revenue_model[]) => {
-      listaRev = data;
-      for (let revenue of listaRev) {
-        this.addToListR(revenue);  
-      }   
-      //this.getDates_rev(this.revenues);
+  
+    const expensesObs = this.expenseService.getExpenses();
+    const revenuesObs = this.revenueService.getRevenues();
+  
+    forkJoin([expensesObs, revenuesObs]).subscribe(([expenses, revenues]) => {
+      expenses.forEach(expense => this.addToListE(expense));
+      revenues.forEach(revenue => this.addToListR(revenue));
+      this.set_balance(this.revenues, this.expenses);
     });
-
-    this.set_balance(this.revenues, this.expenses);
   }
-
 
   addToListE(expense:expense_model){
     this.expenses.push(expense);
@@ -256,29 +246,54 @@ export class BalanceTotalComponent {
     return this.datesOn_rev
   }
 
-  set_balance(revenues:revenue_model[], expenses:expense_model[]){
+  set_balance(revenues: revenue_model[], expenses: expense_model[]) {
     this.datesOn = [];
-    let gastos_mensuales:date_model[] = this.getDates_exp(expenses);
-    let ingresos_mensuales:date_model[] = this.getDates_rev(revenues);
-
-    for(let ingreso of ingresos_mensuales){
-      for(let gasto of gastos_mensuales){
-        if(ingreso.year === gasto.year){
-          for(let mes_ing of ingreso.months){
-            let mes_gasto = gasto.months.find(m => m.num_mes === mes_ing.num_mes);
-            if(mes_gasto){
-              let dateOn:date_model = {year:"", months:[]};
-              let month: month_model = { mes: mes_ing.mes, num_mes: mes_ing.num_mes, total: mes_ing.total - mes_gasto.total };
-              dateOn.year = ingreso.year;
-              dateOn.months.push(month);
-              this.datesOn.push(dateOn);
-              break;
+    const gastos_mensuales: date_model[] = this.getDates_exp(expenses);
+    const ingresos_mensuales: date_model[] = this.getDates_rev(revenues);
+  
+    for (const ingreso of ingresos_mensuales) {
+      const year = ingreso.year;
+      const dateOn: date_model = { year, months: [] };
+  
+      for (const mes_ingresos of ingreso.months) {
+        const mes = mes_ingresos.num_mes;
+        let total = mes_ingresos.total;
+  
+        for (const gasto of gastos_mensuales) {
+          if (gasto.year === year) {
+            for (const mes_gastos of gasto.months) {
+              if (mes_gastos.num_mes === mes) {
+                total -= mes_gastos.total;
+              }
             }
           }
         }
+  
+        const month: month_model = { mes: mes_ingresos.mes, num_mes: mes, total };
+        dateOn.months.push(month);
+      }
+  
+      this.datesOn.push(dateOn);
+    }
+  
+    for (const gasto of gastos_mensuales) {
+      const year = gasto.year;
+      let yearFound = false;
+  
+      for (const ingreso of ingresos_mensuales) {
+        if (ingreso.year === year) {
+          yearFound = true;
+          break;
+        }
+      }
+  
+      if (!yearFound) {
+        const dateOn: date_model = { year, months: [] };
+        const month: month_model = { mes: gasto.months[0].mes, num_mes: gasto.months[0].num_mes, total: -gasto.months[0].total };
+        dateOn.months.push(month);
+        this.datesOn.push(dateOn);
       }
     }
   }
-
-
+  
 }

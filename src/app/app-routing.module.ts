@@ -15,24 +15,25 @@ import { RevenueListComponent } from './components/revenue/revenue-list/revenue-
 import { RevenueRegistrationComponent } from './components/revenue/revenue-registration/revenue-registration.component';
 import { RevenueTotalComponent } from './components/revenue/revenue-total/revenue-total.component';
 import { SettingsComponent } from './components/settings/settings.component';
+import { UserLoginGuard } from './user-login.guard';
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'settings', component: SettingsComponent },
-  { path: 'balance_total', component: BalanceTotalComponent },
-  { path: 'client_list', component: ClientListComponent },
-  { path: 'client_registration', component: ClientRegistrationComponent },
-  { path: 'client_remaining_days', component: ClientRemainingDaysComponent },
-  { path: 'client_update', component: ClientUpdateComponent },
-  { path: 'expense_list', component: ExpenseListComponent },
-  { path: 'expense_registration', component: ExpenseRegistrationComponent },
-  { path: 'expense_total', component: ExpenseTotalComponent },
-  { path: 'revenue_list', component: RevenueListComponent },
-  { path: 'revenue_registration', component: RevenueRegistrationComponent },
-  { path: 'revenue_total', component: RevenueTotalComponent }
+  { path: 'settings', component: SettingsComponent, canActivate:[UserLoginGuard] },
+  { path: 'balance_total', component: BalanceTotalComponent, canActivate:[UserLoginGuard] },
+  { path: 'client_list', component: ClientListComponent, canActivate:[UserLoginGuard] },
+  { path: 'client_registration', component: ClientRegistrationComponent, canActivate:[UserLoginGuard] },
+  { path: 'client_remaining_days', component: ClientRemainingDaysComponent, canActivate:[UserLoginGuard] },
+  { path: 'client_update', component: ClientUpdateComponent, canActivate:[UserLoginGuard] },
+  { path: 'expense_list', component: ExpenseListComponent, canActivate:[UserLoginGuard] },
+  { path: 'expense_registration', component: ExpenseRegistrationComponent, canActivate:[UserLoginGuard] },
+  { path: 'expense_total', component: ExpenseTotalComponent, canActivate:[UserLoginGuard] },
+  { path: 'revenue_list', component: RevenueListComponent, canActivate:[UserLoginGuard] },
+  { path: 'revenue_registration', component: RevenueRegistrationComponent, canActivate:[UserLoginGuard] },
+  { path: 'revenue_total', component: RevenueTotalComponent, canActivate:[UserLoginGuard] }
 ];
 
 @NgModule({

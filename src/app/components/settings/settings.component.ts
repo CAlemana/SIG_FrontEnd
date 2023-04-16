@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-settings',
@@ -22,6 +23,8 @@ export class SettingsComponent {
   
 
   balance_total = true;
+
+  constructor(private router: Router){}
 
   to_client_list(){
     this.client_list = false;
@@ -242,5 +245,8 @@ export class SettingsComponent {
   
     
     this.balance_total = false;
+  }
+  SignOut(){
+    this.router.navigate(['/login']);
   }
 }
