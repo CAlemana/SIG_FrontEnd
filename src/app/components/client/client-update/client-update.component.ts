@@ -99,7 +99,7 @@ export class ClientUpdateComponent {
   }
 
   selectClient(cedula:number){
-    console.log(cedula)
+    
     for (let cliente of this.clients) {
       if (cedula == cliente.cedula){
         this.age = cliente.age;
@@ -122,7 +122,8 @@ export class ClientUpdateComponent {
 
    updateClients(){
     this.imc = this.imcService.computeIMC(this.height, this.weight);
-    let cliente: client_model = {cedula:this.cedula, name:this.name, lastname:this.lastname, age:this.age, gender:this.gender, height:this.height, weight:this.weight, phone:this.phone, start_date:this.start_date, end_date:this.end_date, imc:this.imc};
+    let cliente: client_model = {cedula:this.cedula, name:this.name, lastname:this.lastname, age:this.age, gender:this.gender, height:this.height, weight:this.weight, phone:this.phone, start_date:this.start_date, end_date:this.end_date, imc:parseFloat(this.imc.toFixed(3))};
+   
     this.clientService.editClient(cliente).subscribe(results => {
       this.reloadPage();
       }
