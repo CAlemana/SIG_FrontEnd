@@ -8,8 +8,8 @@ import { user_model } from 'src/app/models/user_model';
 })
 export class UserService {
 
-    URL_usuarios: string = "https://sig-api.onrender.com/api/users/"; 
-   // URL_usuarios: string = "http://localhost:3000/api/users/";
+     URL_usuarios: string = "https://sig-api.onrender.com/api/users/"; 
+   //URL_usuarios: string = "http://localhost:3000/api/users/";
   
   constructor(private http: HttpClient) { }
 

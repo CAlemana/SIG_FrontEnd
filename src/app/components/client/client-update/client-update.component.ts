@@ -128,7 +128,7 @@ export class ClientUpdateComponent {
       this.reloadPage();
       }
     );
-    this.reloadPage();
+    //this.reloadPage();
    }
    
    reloadPage(){
